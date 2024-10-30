@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang=en-GB>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/icon.png">
+    <title>Online Brainfuck Interpreter - Made by Dihellgo and greeegoire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <div id="code-part">
+        <div class="page-title" title="page title">
+            <h1>Online Brainfuck Interpreter</h1>
+            <button id="open-settings" class="control-button">⚙</button>
+        </div>
+        <textarea id="code" rows="10" placeholder="Type your code here"></textarea>
+
+        <br>
+
+        <div id="bottom-line">
+            <button onclick="newprogram()" id="run-button" title="Execute program" class="control-button">▶</button>
+            <input type="text" id="in" class="in-out" placeholder="input...">
+            <input type="text" id="out" class="in-out" placeholder="...output">
+            <button id="play-pause-button" title="Play / pause" class="control-button">■</button>
+
+        </div>
+
+        <div id="variables">
+            <table style="text-align: center;">
+                <tr class="stylized" id="numbers">
+                    <th>Memory cell</th>
+                    <td>0</td>
+                </tr>
+                <tr class="stylized" id="values">
+                    <th>Value</th>
+                    <td>0</td>
+                </tr>
+                <tr id="pointers">
+                    <th></th>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <p><em>Want to learn more / discover what is going on on Brainfuck ? Check the Wikipedia page ! <a href="https://en.wikipedia.org/wiki/Brainfuck" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Brainfuck</a></em></p>
+        <p><em>Help this project by participating at <a href="https://github.com/gregoire-badiche/brainfuck" target="_blank" rel="noopener noreferrer">https://github.com/gregoire-badiche/brainfuck</a></em></p>
+
+    </div>
+
+    <div id="settings-modal">
+
+        <div class="modal-content">
+            <span id="close-settings">&times;</span>
+            <h1>Settings</h1>
+            <div>
+                <input type="checkbox" name="Infinite loop protection" id="loop-p" checked onclick="settings.loopprotection = !settings.loopprotection;">
+                <label for="loop-p">Infinite loop protection</label>
+            </div>
+
+            <div>
+                <input type="checkbox" name="Execute step by step" id="step-by-step" onclick="settings.stepbystep = !settings.stepbystep;">
+                <label for="step-by-step">Execute step by step</label>
+            </div>
+
+            <div>
+                <input type="number" name="value in milisecond" id="step-value" style="width: 60px;" value="1000" onchange="settings.waitingtime = this.value;">
+                <label for="step-value">Waiting time between each step (in miliseconds)</label>
+            </div>
+            
+            <div>
+                <input type="checkbox" name="Dark mode" id="dark-mode" onclick="this.checked = false; alert('So you want a dark mode, uh ? I want one too, but i\'m too lazy to make one. Want to make it, and participate to this project ? Fork the Github project at \'https:\/\/github.com/indeed-in-red/brainfuck\', and submit it !\n- Grégoire')">
+                <label for="dark-mode">Dark mode</label>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="interpretor.js"></script>
+
+</body>
+
+
+</html>
